@@ -34,11 +34,14 @@ section {
     }
 }
 
+img{
+    width:100%;
+    max-width:600px;
+}
+
 .vids {
     display: flex;
 }
-
-
 
 .vid:nth-child(2){
     transition-delay: 200ms;
@@ -51,7 +54,7 @@ section {
 }
 
 .vid {
-    background-color: #1f4242;
+    background-color: #121a1a;
     border-radius: 1px;
     padding:  1rem;
     margin : 0 0.5rem;
