@@ -9,6 +9,7 @@ window.onmousedown = e => {
 window.onmouseup = () => {
     track.dataset.mouseDownAt = "0";
     track.dataset.prevPercentage = track.dataset.percentage;
+    updatePageNumber();
 }
 
 window.onmousemove = e => {
@@ -21,6 +22,8 @@ window.onmousemove = e => {
     // Ensure nextPercentage stays within the desired range
 	const nextPercentage = Math.max(Math.min( parseFloat( track.dataset.prevPercentage ) + percentage, 0 ), track.dataset.percentageMax );
 
+    let updateTimer = setInterval(updatePageNumber, 100);
+
 	track.dataset.percentage = nextPercentage;
     //console.info(track.dataset.percentage);
 
@@ -31,14 +34,22 @@ window.onmousemove = e => {
 
     // Apply translation to individual images
     for (const image of track.getElementsByClassName( "image" ) ) {
-        image.animate({
-            transform: `translateX(${3 * nextPercentage}%)`,
-            objectPosition: `${100 + nextPercentage}% 50%`
-        }, { duration: 2400, fill: "forwards" });
+        image.animate(
+            {
+                transform: `translateX(${3 * nextPercentage}%)`,
+                objectPosition: `${100 + nextPercentage}% 50%`
+            },
+            {
+                duration: 2400,
+                fill: "forwards",
+                easing: "ease"
+            }
+        ).onfinish = () => {
+            // This function will be called when the animation finishes
+            clearInterval(updateTimer);
+            updatePageNumber();
+        };
     }
-
-    updatePageNumber();
-
 }
 
 // // Add scroll wheel functionality
@@ -104,14 +115,12 @@ function updatePageNumber() {
         console.log( closetImageIndex );
     }
 
-
-
     pageNumber.animate(
         {
             transform: `translateY( ${translatePx}px )`
         },
         {
-            duration: 2400,
+            duration: 400,
             easing: "ease-in"
         }
     ).onfinish = () => {
