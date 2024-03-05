@@ -54,7 +54,7 @@ window.onmousemove = e => {
         },
         {
             duration: 2000,
-            easing: "ease-in"
+            easing: "ease-out"
         }
     ).onfinish = () => {
         // This function will be called when the animation finishes
