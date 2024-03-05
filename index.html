@@ -1,22 +1,47 @@
 <!DOCTYPE html>
-<head>
+<html lang="en">
 
-    <meta charset= "UTF-8" >
-    <meta name= "viewport" content= "width=device-width, initial-scale=1.0" >
-    <title>Portfolio</title>
+    <head>
 
-    <link rel= "stylesheet" href= "style.css" >
-    <script defer src= "app.js" > </script>
+        <meta charset= "UTF-8" >
+        <meta name= "viewport" content= "width=device-width, initial-scale=1.0" >
+        <title>Portfolio</title>
 
-</head>
+        <link rel= "stylesheet" href= "style.css" >
+        <script defer src= "app.js" > </script>
 
-<div id= "image-track" data-mouse-down-at= "0" data-scroll-percentage= "0" data-prev-percentage= "0" data-percentage="0">
-    <img class= "image" src= "./media/1.jpg" draggable= "false" />
-    <img class= "image" src= "./media/2.jpg" draggable= "false" />
-    <img class= "image" src= "./media/3.jpg" draggable= "false" />
-    <img class= "image" src= "./media/4.jpg" draggable= "false" />
-    <img class= "image" src= "./media/5.jpg" draggable= "false" />
-    <img class= "image" src= "./media/6.jpg" draggable= "false" />
-    <img class= "image" src= "./media/7.jpg" draggable= "false" />
-    <img class= "image" src= "./media/8.jpg" draggable= "false" />
-</div>
+    </head>
+
+    <body>
+
+        <div id= "image-track" data-mouse-down-at= "0" data-scroll-percentage= "0" data-prev-percentage= "0" data-percentage="0" data-percentage-max="-65">
+            <img class= "image" src= "./media/1.jpg" draggable= "false" alt=""/>
+            <img class= "image" src= "./media/2.jpg" draggable= "false" alt=""/>
+            <img class= "image" src= "./media/3.jpg" draggable= "false" alt=""/>
+            <img class= "image" src= "./media/4.jpg" draggable= "false" alt=""/>
+            <img class= "image" src= "./media/5.jpg" draggable= "false" alt=""/>
+            <img class= "image" src= "./media/6.jpg" draggable= "false" alt=""/>
+            <img class= "image" src= "./media/7.jpg" draggable= "false" alt=""/>
+            <img class= "image" src= "./media/8.jpg" draggable= "false" alt=""/>
+        </div> 
+
+        <div id="page-number-box">
+            <div id="page-number" style="transform: translate(0px, 0px);">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+            </div>
+        </div>
+
+        <div id="number-divider">_</div>
+
+        <div id="page-total">8</div>
+
+    </body>
+
+</html>
