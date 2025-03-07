@@ -62,30 +62,36 @@ window.onmousemove = e => {
     };
 }
 
-// // Add scroll wheel functionality
-// window.addEventListener("wheel", e => {
-//     if (track.dataset.scrollPercentage === "0") return;
+window.addEventListener("wheel", event => {
+    const delta = Math.sign(event.deltaY);
+    console.info(delta);
+});
 
-//     const scrollDir = Math.sign(e.deltaY);
-//     const maxDelta = window.innerWidth / 2;
 
-//     track.dataset.scrollPercentage = track.dataset.prevPercentage - scrollDir;
-//     //(scrollDelta / maxDelta) * -100;
-//     // Ensure nextPercentage stays within the desired range
-//     const nextPercentage = Math.max(Math.min(parseFloat(track.dataset.prevPercentage) - track.dataset.scrollPercentage, 0), -88);
+// // // Add scroll wheel functionality
+//  window.addEventListener("wheel", e => {
+//      if (track.dataset.scrollPercentage === "0") return;
 
-//     track.dataset.percentage = nextPercentage;
-//     console.info(track.dataset.percentage);
+//      const scrollDir = Math.sign(e.deltaY);
+//      const maxDelta = window.innerWidth / 2;
 
-//     // Apply the translation to the image-track
-//     track.animate({
-//         transform: `translate(${nextPercentage}%, -50%)`
-//     }, { duration: 1200, fill: "forwards" });
+//      track.dataset.scrollPercentage = track.dataset.prevPercentage - scrollDir;
+//      //(scrollDelta / maxDelta) * -100;
+//      // Ensure nextPercentage stays within the desired range
+//      const nextPercentage = Math.max(Math.min(parseFloat(track.dataset.prevPercentage) - track.dataset.scrollPercentage, 0), -88);
 
-//     // Apply translation to individual images
-//     for (const image of track.getElementsByClassName("image")) {
-//         image.animate({
-//             objectPosition: `${100 + nextPercentage}% center`
-//         }, { duration: 1200, fill: "forwards" });
-//     }
-// });
+//      track.dataset.percentage = nextPercentage;
+//      console.info(track.dataset.percentage);
+
+//      // Apply the translation to the image-track
+//      track.animate({
+//          transform: `translate(${nextPercentage}%, -50%)`
+//      }, { duration: 1200, fill: "forwards" });
+
+//      // Apply translation to individual images
+//      for (const image of track.getElementsByClassName("image")) {
+//          image.animate({
+//              objectPosition: `${100 + nextPercentage}% center`
+//          }, { duration: 1200, fill: "forwards" });
+//      }
+//  });
